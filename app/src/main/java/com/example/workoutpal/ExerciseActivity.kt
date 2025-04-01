@@ -27,7 +27,9 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     private var exerciseProgress =0
     private var restTimerDuration : Long = 1
 
-    private var ExerciseTimerDuration : Long = 1
+//    private var ExerciseTimerDuration : Long = 1
+
+    private var ExerciseTimerDuration : Long = 30
 
     private var exerciseList : ArrayList<ExceriseModel> ? = null
     private var currentExercisePosition = -1
@@ -196,7 +198,10 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     }
 
     private fun setExerciseProgressBar(){
-        exerciseTimer = object : CountDownTimer(ExerciseTimerDuration*1000, 1000) { // Tick every 1 sec
+        exerciseProgress = 0
+        binding?.progressBarExercise?.max = 30 // Ensure max value is set
+
+        exerciseTimer = object : CountDownTimer(ExerciseTimerDuration * 1000, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 exerciseProgress++
                 binding?.progressBarExercise?.progress = 30 - exerciseProgress
@@ -204,22 +209,21 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             }
 
             override fun onFinish() {
-
-
-
-                if(currentExercisePosition <exerciseList?.size!! -1){
+                if (currentExercisePosition < exerciseList?.size!! - 1) {
                     setupRestView()
                     exerciseList!![currentExercisePosition].setIsSelected(false)
                     exerciseList!![currentExercisePosition].setIsCompleted(true)
                     excerciseAdapter!!.notifyDataSetChanged()
-                } else{
-                    finish()
+                } else {
                     val intent = Intent(this@ExerciseActivity, FinishActivity::class.java)
                     startActivity(intent)
+                    finish()
                 }
             }
         }.start()
     }
+
+
 
     override fun onInit(status: Int) {
         if(status ==TextToSpeech.SUCCESS){

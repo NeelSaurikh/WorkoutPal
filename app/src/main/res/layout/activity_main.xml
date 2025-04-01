@@ -68,11 +68,11 @@
         android:id="@+id/flHistory"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="28dp"
         android:background="@drawable/item_color_accent_border_ripple_background"
         app:layout_constraintBottom_toTopOf="@id/flStart"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.036"
+        app:layout_constraintHorizontal_bias="0.458"
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
