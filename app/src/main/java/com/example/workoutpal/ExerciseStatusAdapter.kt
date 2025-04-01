@@ -24,24 +24,38 @@ class ExerciseStatusAdapter(val items: ArrayList<ExceriseModel>):
         val model: ExceriseModel = items[position]
         holder.tvItem.text = model.getId().toString()
 
-        when{
-            model.getIsSelected() ->{
-                holder.tvItem.background = ContextCompat.getDrawable(holder.itemView.context,
-                    R.drawable.item_circular_thin_color_accent_border)
-                holder.tvItem.setTextColor(Color.parseColor("#212121"))
-            }
-            model.getIsCompleted() ->{
-                holder.tvItem.background = ContextCompat.getDrawable(holder.itemView.context,
-                    R.drawable.item_circular_thin_color_accent_border)
-                holder.tvItem.setTextColor(Color.parseColor("#FFFFFF"))
-            }
-            else ->{
-                holder.tvItem.background = ContextCompat.getDrawable(holder.itemView.context,
-                    R.drawable.item_circular_color_grey_background)
-                holder.tvItem.setTextColor(Color.parseColor("#212121"))
+        val context = holder.itemView.context
+
+    when {
+        model.getIsSelected() -> {
+            holder.tvItem.background = ContextCompat.getDrawable(
+                context, R.drawable.item_circular_thin_color_accent_border
+            )
+            holder.tvItem.setTextColor(ContextCompat.getColor(context, R.color.black)) // Dark text
+        }
+        model.getIsCompleted() -> {
+            holder.tvItem.background = ContextCompat.getDrawable(
+                context, R.drawable.item_circular_thin_color_accent_border
+            )
+
+            // Automatically choose text color based on theme
+            val nightMode = context.resources.configuration.uiMode and android.content.res.Configuration.UI_MODE_NIGHT_MASK
+            if (nightMode == android.content.res.Configuration.UI_MODE_NIGHT_YES) {
+                holder.tvItem.setTextColor(ContextCompat.getColor(context, R.color.white)) // White text for dark mode
+            } else {
+                holder.tvItem.setTextColor(ContextCompat.getColor(context, R.color.black)) // Black text for light mode
             }
         }
+        else -> {
+            holder.tvItem.background = ContextCompat.getDrawable(
+                context, R.drawable.item_circular_color_grey_background
+            )
+            holder.tvItem.setTextColor(ContextCompat.getColor(context, R.color.black)) // Dark text
+        }
     }
+}
+
+
     override fun getItemCount(): Int {
         return items.size
     }
