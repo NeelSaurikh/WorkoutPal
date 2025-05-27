@@ -147,17 +147,14 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
 
     private fun setupRestView(){
-
         try{
-            val soundURI = Uri.parse(
-                "android.resource://com.example.workoutapplication/"+ R.raw.press_start)
+            val soundURI = Uri.parse("android.resource://com.example.workoutapplication/"+ R.raw.press_start)
             player = MediaPlayer.create(applicationContext,soundURI)
             player?.isLooping = false
             player?.start()
         }catch (e: Exception){
             e.printStackTrace()
         }
-
         binding?.flRestView?.visibility = View.VISIBLE
         binding?.tvTitle?.visibility = View.VISIBLE
         binding?.tvExerciseName?.visibility = View.INVISIBLE
@@ -165,7 +162,6 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         binding?.tvImage?.visibility = View.INVISIBLE
         binding?.tvUpcomingLabel?.visibility = View.VISIBLE
         binding?.tvUpcomingExerciseName?.visibility = View.VISIBLE
-
         if(restTimer !=null){
             restTimer?.cancel()
             restProgress = 0
@@ -181,6 +177,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     private fun setRestProgressBar(){
         binding?.progressBar?.progress = restProgress
 
+        restTimer?.cancel() // Cancel any existing timer
         restTimer = object:CountDownTimer(restTimerDuration*11000,1000){
             override fun onTick(p0: Long) {
                 restProgress++
@@ -189,7 +186,6 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                 }
             override fun onFinish() {
                 currentExercisePosition++
-
                 exerciseList!![currentExercisePosition].setIsSelected(true)
                 excerciseAdapter!!.notifyDataSetChanged()
                 setupExerciseView()
@@ -200,7 +196,9 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     private fun setExerciseProgressBar(){
         exerciseProgress = 0
         binding?.progressBarExercise?.max = 30 // Ensure max value is set
+        binding?.progressBarExercise?.progress = 30
 
+        exerciseTimer?.cancel()
         exerciseTimer = object : CountDownTimer(ExerciseTimerDuration * 1000, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 exerciseProgress++
@@ -210,10 +208,10 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
             override fun onFinish() {
                 if (currentExercisePosition < exerciseList?.size!! - 1) {
-                    setupRestView()
                     exerciseList!![currentExercisePosition].setIsSelected(false)
                     exerciseList!![currentExercisePosition].setIsCompleted(true)
                     excerciseAdapter!!.notifyDataSetChanged()
+                    setupRestView()
                 } else {
                     val intent = Intent(this@ExerciseActivity, FinishActivity::class.java)
                     startActivity(intent)
