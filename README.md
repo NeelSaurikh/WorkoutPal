@@ -26,6 +26,35 @@
 
 ---
 
+## 📸 App Screenshots
+
+### 🏠 Main Screens
+
+<div align="center">
+  <img src="Images/MainScreen.jpg" width="250"/>
+  <img src="Images/BMI Calculator.jpg" width="250"/>
+  <img src="Images/Database.jpg" width="250"/>
+</div>
+
+---
+
+### 🏋️ Exercise Screens
+
+<div align="center">
+  <img src="Images/Ex1.jpg" width="250"/>
+  <img src="Images/Ex2.jpg" width="250"/>
+  <img src="Images/Ex3.jpg" width="250"/>
+  <br/>
+  <img src="Images/Ex4.jpg" width="250"/>
+  <img src="Images/Ex5.jpg" width="250"/>
+  <img src="Images/Ex6.jpg" width="250"/>
+  <br/>
+  <img src="Images/Ex7.jpg" width="250"/>
+  <img src="Images/Ex8.jpg width="250"/>
+  <img src="Images/Ex9.jpg" width="250"/>
+</div>
+
+
 ## 🛠️ Tech Stack
 
 - **Language:** Kotlin
