@@ -1,66 +1,48 @@
-Workout Pal
+# 🏋️‍♂️ WorkoutPal – Your Personal Fitness Companion
 
-Workout Pal is a simple and interactive fitness application designed to help users stay active and track their progress. The app includes a guided exercise routine, a BMI calculator, a push-up counter (with future database integration), and a workout history section to keep track of past workouts.
+**WorkoutPal** is a simple and interactive fitness application designed to help users stay active and track their progress. Whether you're on a tight schedule or just looking for a structured workout routine, WorkoutPal offers guided exercises, a BMI calculator, and tools to monitor your fitness journey.
 
-Features
+---
 
-1. Exercise Mode
+## 📱 Features
 
-  A guided workout session with 12 different exercises.
+### 1. **Exercise Mode**
+- Guided workout sessions featuring 12 different exercises.
+- Countdown timers for both rest and exercise periods.
+- Visual and audio cues to ensure a seamless workout experience.
+- Status tracker displaying completed and upcoming exercises.
 
-  Countdown timers for rest and exercise periods.
+### 2. **BMI Calculator**
+- Input your height and weight to calculate your Body Mass Index (BMI).
+- Provides insights into your health status based on BMI results.
 
-  Visual and audio cues for a seamless workout experience.
+### 3. **Push-Up Counter**
+- Counts the number of push-ups performed.
+- Future integration planned for storing push-up data in a database.
 
-  A status tracker that shows completed and upcoming exercises.
+### 4. **Workout History**
+- Keep track of your past workouts.
+- Review your progress over time to stay motivated.
 
-2. BMI Calculator
+---
 
-  Supports both US Units (lbs, inches) and Metric Units (kg, cm).
+## 🛠️ Tech Stack
 
-  Helps users determine their Body Mass Index (BMI) to assess their fitness level.
+- **Language:** Kotlin
+- **Platform:** Android
+- **Architecture:** MVVM (Model-View-ViewModel)
+- **UI:** XML layouts with Material Design components
+- **Database:** Room (planned for future integration)
 
-3. Push-Up Counter (Database Integration Coming Soon!)
+---
 
-  Tracks the number of push-ups performed.
+## 🚀 Getting Started
 
-  Future updates will include a database to store past push-up records.
+### Prerequisites
+- Android Studio installed on your machine.
+- An Android device or emulator to run the application.
 
-4. Workout History
-
-  Logs all completed workouts.
-
-  Allows users to track their fitness progress over time.
-
-  Technologies Used
-
-  1.Kotlin for Android Development
-  2.Android Studio for IDE
-  3.RecyclerView for tracking exercise status
-  4.ROOM Database (Upcoming feature for Push-Up Counter)
-  5.MediaPlayer & TextToSpeech for audio feedback
-
-Future Improvements
-
-  1.Push-Up Counter Database Integration . This little feature will come in future updates
-  2.Customizable Workout Plans
-  3.Dark Mode Support
-  4.Social Sharing for Workout Achievements
-
-Installation
-
-  1.Clone the repository- git clone https://github.com/NeelSaurikh/WorkoutPal.git
-
-  2.Open the project in Android Studio.
-
-  3.Build and run the application on an emulator or physical device.
-
-Contributing
-
-Feel free to fork this repository and contribute improvements! Open a pull request with detailed descriptions of your changes.
-
-Contact
-
-For any issues or feature requests, feel free to reach out at Email: (indraneelhbk@gmail.com).
-
-Stay Fit!
+### Installation
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/NeelSaurikh/WorkoutPal.git
